@@ -1,4 +1,4 @@
-```javascript
+
 // Game state
 const gameState = {
     currentLevel: 1,
@@ -234,4 +234,4 @@ document.getElementById('messageInput').addEventListener('keypress', (e) => {
 window.onload = () => {
     loadLevel(1);
 };
-```
+
