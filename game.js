@@ -59,7 +59,7 @@ async function submitApiKey() {
 async function testApiKey(apiKey) {
     try {
         console.log('Testing API key:', apiKey.substring(0, 10) + '...'); // показываем начало ключа для проверки
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        const response = await fetch('https://cors-proxy.example.com/https://api.anthropic.com/v1/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
