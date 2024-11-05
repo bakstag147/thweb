@@ -273,7 +273,7 @@
             <h2>Добро пожаловать в Time Hacker</h2>
             <p>Для игры требуется API ключ Claude от Anthropic. <a href="https://console.anthropic.com/account/keys" target="_blank">Получить ключ</a></p>
             <input type="password" id="apiKeyInput" placeholder="Введите ваш API ключ" class="api-key-input">
-            <button onclick="submitApiKey()" class="api-key-submit">Начать игру</button>
+            <button id="startGameButton" class="api-key-submit">Начать игру</button>
             <div class="key-info">
                 🔒 Ключ хранится только в вашем браузере и нигде не передается, кроме API Claude
             </div>
@@ -288,13 +288,13 @@
                 <span class="level-total">из 10</span>
             </div>
             <div class="header-buttons">
-                <button class="restart-button" onclick="restartLevel()">↺</button>
-                <button class="logout-button" onclick="logout()">Выйти</button>
+                <button class="restart-button" id="restartButton">↺</button>
+                <button class="logout-button" id="logoutButton">Выйти</button>
             </div>
         </div>
 
         <div class="level-image">
-            <img id="levelImage" src="placeholder.jpg" alt="Level image">
+            <img id="levelImage" src="https://via.placeholder.com/800x400" alt="Level image">
         </div>
 
         <div class="chat-container" id="chatContainer">
@@ -303,7 +303,7 @@
 
         <div class="input-container">
             <input type="text" class="message-input" id="messageInput" placeholder="Введите сообщение...">
-            <button class="send-button" id="sendButton" onclick="sendMessage()">↑</button>
+            <button class="send-button" id="sendButton">↑</button>
         </div>
     </div>
 
