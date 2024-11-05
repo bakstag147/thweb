@@ -58,12 +58,14 @@ async function submitApiKey() {
 // Test API key validity
 async function testApiKey(apiKey) {
     try {
+        console.log('Testing API key:', apiKey.substring(0, 10) + '...'); // показываем начало ключа для проверки
         const response = await fetch('https://api.anthropic.com/v1/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'anthropic-version': '2023-06-01',
-                'x-api-key': apiKey
+                'x-api-key': apiKey,
+                'anthropic-beta': 'messages-2024-02-20'  // добавим этот заголовок
             },
             body: JSON.stringify({
                 model: 'claude-3-opus-20240229',
@@ -74,7 +76,12 @@ async function testApiKey(apiKey) {
                 max_tokens: 1024
             })
         });
-        console.log('API test response:', response.status);
+        
+        // Добавим вывод ответа сервера
+        const responseText = await response.text();
+        console.log('API response status:', response.status);
+        console.log('API response:', responseText);
+        
         return response.ok;
     } catch (error) {
         console.error('API test error:', error);
